@@ -1,0 +1,10 @@
+* {
+  font-size: 18px;
+  font-family:Cambria, Georgia, Times, 'Times New Roman', serif;
+  line-height: 1.4;
+  text-align: center;
+  color: black;
+  border: 2px solid lightcoral;
+  margin: 8px;
+  padding: 8px;
+}
