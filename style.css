@@ -5,7 +5,7 @@
   text-align: center;
   color: black;
   border: 1px solid lightcoral;
-  margin: 0;
+  margin: 4px;
   padding: 0;
 }
 body {
@@ -22,4 +22,14 @@ h1 {
   gap: 8px;
   justify-content: center;
   align-items: flex-start;
+}
+.controls-container {
+  flex: 1;
+}
+.sketch-container {
+  flex: 0 0 auto;
+  display: grid;
+  width: 600px;
+  height: 600px;
+  padding: 0;
 }
