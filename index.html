@@ -7,9 +7,19 @@
 </head>
 <body>
   <h1>Etch-a-Sketch</h1>
-  <div class="container">CONTAINER DIV
-    <div class="controls-container">CONTROLS</div>
-    <div class="sketch-container">SKETCHPAD</div>
+  <div class="container">
+    <div class="controls-container">
+      <div id="color-picker">
+        <label for="color">Select color:</label> 
+        <input type="color" name="color" id="color">
+      </div>
+      <div id="sketch-size">
+        <label for="slider">Grid size:</label>
+        <input type="range" min="1" max="100" value="16" name="slider" id="slider">
+        <p id="grid-size">16x16</p>
+      </div>
+    </div>
+    <div class="sketch-container"></div>
   </div>
   <script onload src="script.js"></script>
 </body>
