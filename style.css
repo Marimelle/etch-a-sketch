@@ -29,7 +29,8 @@ h1 {
 .sketch-container {
   flex: 0 0 auto;
   display: grid;
-  width: 600px;
-  height: 600px;
+  width: 60vw;
+  min-width: 300px;
+  aspect-ratio: 1 / 1;
   padding: 0;
 }
