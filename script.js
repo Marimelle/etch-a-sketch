@@ -1,7 +1,7 @@
 /* GLOBAL VARIABLES */
 
 // Value of color picker
-let color = "";
+let color = "black";
 // Number of columns/rows based on slider
 let gridSize = 16;
 // Node of the input slider for grid size
@@ -13,6 +13,10 @@ const sketchPad = document.querySelector(".sketch-container");
 // Draw the grid items in the sketch-container with
 // the default 16 x 16 grid size
 drawGrid(gridSize);
+
+function paintBox(e){
+  e.target.style.backgroundColor = color;
+}
 
 /************************************************
  * Display grid size beside input slider and
@@ -60,5 +64,6 @@ function drawGrid(gridSize){
       background-color: white;
       padding: 0;
       margin: 0;`);
+    box.addEventListener('mouseenter', paintBox);
   }
 }
