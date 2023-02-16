@@ -40,5 +40,14 @@ function drawGrid(gridSize){
   sketchPad.innerHTML = "";
 
   // Create the divs as grid items of the sketch-container
-
+  for(let i = 0; i < gridSize**2; i++){
+    // Create 1 div and append as child of sketchPad
+    let box = document.createElement("div");
+    sketchPad.appendChild(box);
+    box.setAttribute("style",
+      `border: none;
+      background-color: white;
+      padding: 0;
+      margin: 0;`);
+  }
 }
