@@ -1,7 +1,7 @@
 /* GLOBAL VARIABLES */
 
 // Value of color picker
-let pixelColor = "";
+let color = "";
 // Number of grids based on slider
 let gridSize = 16;
 // Node of the input slider for grid size
@@ -9,6 +9,8 @@ let rangeValue = document.getElementById("slider");
 // Draw the grid items in the sketch-container with
 // the default 16 x 16 grid size
 drawGrid(gridSize);
+// Node of the color picker
+let colorPicker = document.getElementById("color");
 
 /************************************************
  * Display grid size beside input slider and
@@ -24,6 +26,12 @@ rangeValue.oninput = function showGridSize() {
   sliderValue.innerHTML = `${gridSize}x${gridSize}`;
   drawGrid(gridSize);
 };
+// Get the color selected from the color picker every time the selection is changed
+colorPicker.onchange = function selectColor() {
+  color = this.value;
+  console.log(color);
+}
+
 
 /****************************************************
  * Create divs inside sketch-container where there
