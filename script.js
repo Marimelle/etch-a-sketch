@@ -2,15 +2,17 @@
 
 // Value of color picker
 let color = "";
-// Number of grids based on slider
+// Number of columns/rows based on slider
 let gridSize = 16;
 // Node of the input slider for grid size
-let rangeValue = document.getElementById("slider");
+const rangeValue = document.getElementById("slider");
+// Node of the color picker
+const colorPicker = document.getElementById("color");
+// Get node for sketch-container div
+const sketchPad = document.querySelector(".sketch-container");
 // Draw the grid items in the sketch-container with
 // the default 16 x 16 grid size
 drawGrid(gridSize);
-// Node of the color picker
-let colorPicker = document.getElementById("color");
 
 /************************************************
  * Display grid size beside input slider and
@@ -19,19 +21,22 @@ let colorPicker = document.getElementById("color");
  */
 rangeValue.oninput = function showGridSize() {
   // Get node of p showing the value of slider
-  let sliderValue = document.getElementById("grid-size");
+  const sliderValue = document.getElementById("grid-size");
   // Convert value to number and assign to gridSize
   gridSize = +this.value;
   // Show grid size chosen beside the slider
   sliderValue.innerHTML = `${gridSize}x${gridSize}`;
   drawGrid(gridSize);
 };
-// Get the color selected from the color picker every time the selection is changed
+
+/***********************************************
+ * Get the color selected from the color picker
+ * every time the selection is changed
+ */
 colorPicker.onchange = function selectColor() {
   color = this.value;
   console.log(color);
 }
-
 
 /****************************************************
  * Create divs inside sketch-container where there
@@ -39,8 +44,6 @@ colorPicker.onchange = function selectColor() {
  * gridSize will be the number of columns and rows.
  */
 function drawGrid(gridSize){
-  // Get node for sketch-container div
-  let sketchPad = document.querySelector(".sketch-container");
   // Change number of columns & rows to gridSize
   sketchPad.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   sketchPad.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
