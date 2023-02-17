@@ -1,4 +1,4 @@
-/* GLOBAL VARIABLES */
+/********** GLOBAL VARIABLES ***********/
 
 // Value of color picker
 let color = "black";
@@ -13,23 +13,56 @@ const sketchPad = document.querySelector(".sketch-container");
 
 // Node of the button for random color
 const randomBtn = document.querySelector(".random-color");
-randomBtn.addEventListener("click", randomize);
 // Boolean variable is true if user wants random color
 // False if user unclicked the Random button or chose
 // a color from color picker
 let randomSelected = false;
 
+// Add event listener to "Random" button
+randomBtn.addEventListener("click", randomize);
 // Draw the grid items in the sketch-container with
 // the default 16 x 16 grid size
 drawGrid(gridSize);
 
+/*************************************************
+ * Change background color of box to selected color
+ * from color picker. If random button is clicked,
+ * use a random color instead.
+ */
 function paintBox(e){
-  e.target.style.backgroundColor = color;
+  if(randomSelected){
+    e.target.style.backgroundColor = randomColor();
+  }
+  else {
+    e.target.style.backgroundColor = color;
+  }
 }
 
-function randomize(){
-  // toggle randomize css class
-  // return random color 
+/************************************************
+ * Toggle class randomize on the "Random" button
+ * and toggle the boolean value of randomSelected
+ */
+function randomize(e){
+  e.target.classList.toggle("randomize");
+  if(randomSelected) {
+    randomSelected = false;
+  }
+  else {
+    randomSelected = true;
+  }
+}
+/********************************************
+ * Return randomly generated color
+ */
+function randomColor(){
+  // Generate number from 0 to 255 for each of the
+  // 3 variables for the RGB color
+  red = Math.floor(Math.random() * 255);
+  green = Math.floor(Math.random() * 255);
+  blue = Math.floor(Math.random() * 255);
+  
+  color = `rgb(${red},${green},${blue})`;
+  return color;
 }
 /************************************************
  * Display grid size beside input slider and
