@@ -10,6 +10,15 @@ const rangeValue = document.getElementById("slider");
 const colorPicker = document.getElementById("color");
 // Get node for sketch-container div
 const sketchPad = document.querySelector(".sketch-container");
+
+// Node of the button for random color
+const randomBtn = document.querySelector(".random-color");
+randomBtn.addEventListener("click", randomize);
+// Boolean variable is true if user wants random color
+// False if user unclicked the Random button or chose
+// a color from color picker
+let randomSelected = false;
+
 // Draw the grid items in the sketch-container with
 // the default 16 x 16 grid size
 drawGrid(gridSize);
@@ -18,6 +27,10 @@ function paintBox(e){
   e.target.style.backgroundColor = color;
 }
 
+function randomize(){
+  // toggle randomize css class
+  // return random color 
+}
 /************************************************
  * Display grid size beside input slider and
  * draw grid items in the sketch-container every
@@ -38,6 +51,10 @@ rangeValue.oninput = function showGridSize() {
  * every time the selection is changed
  */
 colorPicker.onchange = function selectColor() {
+  // If color is selected from color picker,
+  // remove randomize class from random button
+  randomBtn.classList.remove("randomize");
+  randomSelected = false;
   color = this.value;
   console.log(color);
 }
